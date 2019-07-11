@@ -1,6 +1,6 @@
 ## AWS Kinesisanalytics Runtime
 
-This library contains the Kinesis Analytics stream processing runtime configuration classes. 
+This library contains the Kinesis Analytics processing runtime configuration classes. 
 
 ## License
 
