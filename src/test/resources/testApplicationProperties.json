@@ -1,0 +1,15 @@
+[
+  {
+    "PropertyGroupId": "Stream1",
+    "PropertyMap": {
+      "Region": "us-east-1"
+    }
+  },
+  {
+    "PropertyGroupId": "Stream2",
+    "PropertyMap": {
+      "Region": "us-east-2",
+      "Offset": "latest"
+    }
+  }
+]
