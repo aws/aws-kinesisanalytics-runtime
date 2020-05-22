@@ -39,7 +39,8 @@ public class KinesisAnalyticsRuntime {
     /**
      * Returns the application properties passed to the application when the application was started or updated
      *
-     * @return a map of PropertyGroupId java.util.Properties
+     * @return a map of PropertyGroupId to java.util.Properties
+     * @throws IOException if an exception is encountered
      */
     public static Map<String, Properties> getApplicationProperties() throws IOException {
         Properties configProperties = getConfigProperties();
@@ -50,7 +51,8 @@ public class KinesisAnalyticsRuntime {
      * Returns the application properties passed to the application when the application was started or updated
      *
      * @param filename name of the file that contains the property groups
-     * @return a map of PropertyGroupId java.util.Properties
+     * @return a map of PropertyGroupId to java.util.Properties
+     * @throws IOException if an exception is encountered
      */
     public static Map<String, Properties> getApplicationProperties(String filename) throws IOException {
         Map<String, Properties> appProperties = new HashMap<>();

@@ -24,7 +24,7 @@ under the License.
 
     <groupId>com.amazonaws</groupId>
     <artifactId>aws-kinesisanalytics-runtime</artifactId>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
     <packaging>jar</packaging>
     <name>AWS Kinesis Analytics Java Flink Runtime</name>
     <description>This library contains the Kinesis Analytics Java stream processing runtime configuration classes.</description>
@@ -56,6 +56,8 @@ under the License.
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
         <scala.binary.version>2.11</scala.binary.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
 	<artifactrepo.url>https://mvnrepository.com/artifact/com.amazonaws/aws-kinesisanalytics-runtime</artifactrepo.url>
     </properties>
 
@@ -74,7 +76,8 @@ under the License.
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-core</artifactId>
-            <version>1.5.0</version>
+            <version>${flink.version}</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.apache.flink</groupId>
@@ -92,65 +95,6 @@ under the License.
 
     <build>
         <plugins>
-            <!-- Sonatype Plugin to upload maven artifacts -->
-            <plugin>
-                <groupId>org.sonatype.plugins</groupId>
-                <artifactId>nexus-staging-maven-plugin</artifactId>
-                <version>1.6.8</version>
-                <extensions>true</extensions>
-                <configuration>
-                    <serverId>ossrh</serverId>
-                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-                    <autoReleaseAfterClose>false</autoReleaseAfterClose>
-                </configuration>
-            </plugin>
-
-            <!-- Maven Plugin to generate Source Code -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-source-plugin</artifactId>
-                <version>3.0.1</version>
-                <executions>
-                    <execution>
-                        <id>attach-sources</id>
-                        <goals>
-                            <goal>jar-no-fork</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-
-            <!-- Maven Plugin to generate Java Doc -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <version>3.0.1</version>
-                <executions>
-                    <execution>
-                        <id>attach-javadocs</id>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-
-            <!-- Maven GPG Plugin to Sign the components -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-gpg-plugin</artifactId>
-                <version>1.5</version>
-                <executions>
-                    <execution>
-                        <id>sign-artifacts</id>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>sign</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-
             <!-- Java Compiler -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -179,6 +123,5 @@ under the License.
                 </dependencies>
             </plugin>
         </plugins>
-
     </build>
 </project>
