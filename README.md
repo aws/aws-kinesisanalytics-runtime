@@ -1,6 +1,6 @@
 # AWS Kinesis Analytics Flink Runtime
 This library can be used to access externalised KDA Flink application properties at runtime. 
-See the [documentation][aws-documentation] for a guide on how to configure properties in you KDA application. 
+See the [documentation][aws-documentation] for a guide on how to configure properties in your KDA application. 
 
 - [AWS Documentation][aws-documentation]
 - [Issues][issues]
