@@ -18,39 +18,39 @@
 
 package com.amazonaws.services.kinesisanalytics.runtime;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import java.io.IOException;
 import java.util.Map;
 import java.util.Properties;
 
-class KinesisAnalyticsRuntimeTest {
+import static org.assertj.core.api.Assertions.assertThat;
+
+public class KinesisAnalyticsRuntimeTest {
     @Test
-    void testGetApplicationProperties() throws IOException {
+    public void testGetApplicationProperties() throws IOException {
         Map<String, Properties> propertyGroups = KinesisAnalyticsRuntime.getApplicationProperties(getClass()
                         .getClassLoader()
                         .getResource("testApplicationProperties.json")
                         .getPath());
 
         Properties stream1Props = propertyGroups.get("Stream1");
-        Assertions.assertEquals("us-east-1", stream1Props.getProperty("Region"));
+        assertThat(stream1Props.getProperty("Region")).isEqualTo("us-east-1");
 
         Properties stream2Props = propertyGroups.get("Stream2");
-        Assertions.assertEquals("us-east-2", stream2Props.getProperty("Region"));
-        Assertions.assertEquals("latest", stream2Props.getProperty("Offset"));
+        assertThat(stream2Props.getProperty("Region")).isEqualTo("us-east-2");
+        assertThat(stream2Props.getProperty("Offset")).isEqualTo("latest");
     }
 
     @Test
-    void testGetApplicationPropertiesNoFile() throws IOException {
+    public void testGetApplicationPropertiesNoFile() throws IOException {
         Map<String, Properties> propertyGroups = KinesisAnalyticsRuntime.getApplicationProperties("nosuchfile.json");
-
-        Assertions.assertEquals(0, propertyGroups.size());
+        assertThat(propertyGroups).isEmpty();
     }
 
     @Test
-    void testGetConfigProperties() throws IOException {
+    public void testGetConfigProperties() throws IOException {
         Properties configProperties = KinesisAnalyticsRuntime.getConfigProperties();
-        Assertions.assertNotNull(configProperties);
+        assertThat(configProperties).isNotNull();
     }
 }
