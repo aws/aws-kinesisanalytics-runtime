@@ -21,12 +21,13 @@ String outputStreamName = properties.getProperty("outputStreamName");
     1. `$ mvn clean install`
 
 ## Flink Version Matrix
+This project is compatible with Flink 1.x, there is no guarantee it will support Flink 2.x should it release in the future.
 
 Connector Version | Flink Version | Release Date
 ----------------- | ------------- | ------------
-1.1.0 | 1.8.3 | Dec, 2019
-1.0.1 | 1.6.2 | Dec, 2018
-1.0.0 | 1.5.0 | Dec, 2018 
+1.1.0 | 1.x | Dec, 2019
+1.0.1 | 1.x | Dec, 2018
+1.0.0 | 1.x | Dec, 2018 
 
 ## License
 
