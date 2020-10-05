@@ -24,7 +24,7 @@ under the License.
 
     <groupId>com.amazonaws</groupId>
     <artifactId>aws-kinesisanalytics-runtime</artifactId>
-    <version>1.2.0-RC1-SNAPSHOT</version>
+    <version>1.2.0</version>
     <packaging>jar</packaging>
     <name>AWS Kinesis Analytics Java Flink Runtime</name>
     <description>This library contains the Kinesis Analytics Java stream processing runtime configuration classes.</description>
