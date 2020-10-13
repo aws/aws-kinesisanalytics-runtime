@@ -60,7 +60,7 @@ under the License.
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <maven-compiler-plugin.version>3.1</maven-compiler-plugin.version>
-        <junit.version>4.13</junit.version>
+        <junit.version>4.13.1</junit.version>
         <assertj.version>3.16.1</assertj.version>
 	    <artifactrepo.url>https://mvnrepository.com/artifact/com.amazonaws/aws-kinesisanalytics-runtime</artifactrepo.url>
     </properties>
