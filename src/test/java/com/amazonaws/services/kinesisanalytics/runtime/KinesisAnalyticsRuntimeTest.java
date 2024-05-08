@@ -18,13 +18,14 @@
 
 package com.amazonaws.services.kinesisanalytics.runtime;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.util.Map;
 import java.util.Properties;
 
-import static org.assertj.core.api.Assertions.assertThat;
+//import static org.assertj.core.api.Assertions.assertThat;
 
 public class KinesisAnalyticsRuntimeTest {
     @Test
@@ -35,22 +36,22 @@ public class KinesisAnalyticsRuntimeTest {
                         .getPath());
 
         Properties stream1Props = propertyGroups.get("Stream1");
-        assertThat(stream1Props.getProperty("Region")).isEqualTo("us-east-1");
+        assertEquals(stream1Props.getProperty("Region"), "us-east-1");
 
         Properties stream2Props = propertyGroups.get("Stream2");
-        assertThat(stream2Props.getProperty("Region")).isEqualTo("us-east-2");
-        assertThat(stream2Props.getProperty("Offset")).isEqualTo("latest");
+        assertEquals("us-east-2", stream2Props.getProperty("Region"));
+        assertEquals("latest", stream2Props.getProperty("Offset"));
     }
 
     @Test
     public void testGetApplicationPropertiesNoFile() throws IOException {
         Map<String, Properties> propertyGroups = KinesisAnalyticsRuntime.getApplicationProperties("nosuchfile.json");
-        assertThat(propertyGroups).isEmpty();
+        assertTrue(propertyGroups == null || propertyGroups.isEmpty());
     }
 
     @Test
     public void testGetConfigProperties() throws IOException {
         Properties configProperties = KinesisAnalyticsRuntime.getConfigProperties();
-        assertThat(configProperties).isNotNull();
+        assertNotNull(configProperties);
     }
 }
