@@ -18,7 +18,7 @@
 
 package com.amazonaws.services.kinesisanalytics.runtime;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.util.Map;
