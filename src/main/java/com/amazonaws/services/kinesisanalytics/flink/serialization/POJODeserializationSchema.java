@@ -24,6 +24,10 @@ import org.apache.flink.shaded.jackson2.com.fasterxml.jackson.databind.ObjectMap
 
 import java.io.IOException;
 
+/**
+ * @deprecated This is not needed for KinesisAnalyticsRuntime.
+ */
+@Deprecated
 public class POJODeserializationSchema<T> implements DeserializationSchema<T> {
     private final ObjectMapper mapper = new ObjectMapper();
     private final Class<T> clazz;
